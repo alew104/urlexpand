@@ -1,0 +1,17 @@
+{% extends "urlexpand/base.html" %}
+
+{% block content %}
+	<p>Original URL: <b><a href="{{ url.original }}">{{ url.origin }}</a></b></p>
+	<p>Destination URL: <b><a href="{{ url.destination }}">{{ url.destination }}</a></b></p>
+	<p>HTTP Status: <b>{{ url.httpstatus }}</b></p>
+	<p>Title: <b>{{ url.title }}</b></p>
+	<p>Image URL: <b> {{url.pic}} </b></p>
+	<form>
+		<button type="submit" formaction="{% url 'url_remove' pk=url.pk %}">
+			Delete
+		</button>
+	</form>
+	<form method="POST">{% csrf_token %}
+	        <input type="submit" name="newimage" value="Refresh Image">
+	</form>
+{% endblock content %}

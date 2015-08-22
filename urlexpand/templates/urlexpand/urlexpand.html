@@ -1,0 +1,9 @@
+{% extends "urlexpand/base.html" %}
+
+{% block content %}
+  {% for url in urls %}
+      <div class="post">
+          <h1><a href = "{% url "urldetails" pk=url.pk %}">{{ url.origin }} </a></h1>
+        </div>
+    {% endfor %}
+{% endblock content %}
